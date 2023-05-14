@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book catalogue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Book catalogue</h1>
+    {% if not logged_in %}
+        <div class="error">
+            <p>You must be logged in to see book catalogue.</p>
+            <p><a href="{{ url_for('login') }}" class="button">Go to login page</a>
+        </div></p>
+    {% else %}
+        {% if msg_success %}
+            <div class="success">
+                <p>{{ msg_success }}</p>
+            </div>
+        {% endif %}
+
+        {% if msg_error %}
+            <div class="error">
+                <p>{{ msg_error }}</p>
+            </div>
+        {% endif %}
+
+        <h2>Total number of books: {{books|length}}</h2>
+        {% for book in books %}
+            <div class="book-grid">
+                <div class="book-details">
+                    <p>
+                        <span class="heading">Title:</span>
+                        <span class="description">{{book["title"]}}</span>
+                    </p>
+                    <p>
+                        <span class="heading">Author:</span>
+                        <span class="description">{{book["author"]}}</span>
+                    </p>
+                    <p>
+                        <span class="heading">Number of pages:</span>
+                        <span class="description">{{book["pages"]}}</span>
+                    </p>
+                    <p>
+                        <span class="heading">Average rating:</span>
+                        <span class="description">{{book["rating"]}}</span>
+                    </p>
+                </div>
+                <div class="book-delete">
+                    <a href="{{ url_for('delete', id=book['id']) }}"  class="button delete">Delete book</a>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+        <h2>Add new book:</h2>
+        <form action="{{ url_for('add_book') }}" method="post">
+            <label class="heading">ISBN:</label><br>
+            <input type="text" name="isbn" required class="input"><br><br>
+
+            <input type="submit" value="Add book" class="button">
+          </form> 
+
+    {% endif %}
+</body>

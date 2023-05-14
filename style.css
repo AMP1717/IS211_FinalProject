@@ -1,0 +1,86 @@
+body{
+    max-width: 80%;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: 7fr 2fr;
+    grid-template-rows: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.book-details { 
+    grid-area: 1 / 1 / 2 / 2;
+}
+.book-delete {
+    grid-area: 1 / 2 / 2 / 3;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.button{
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+
+.delete{
+    background-color: rgb(255, 68, 68);
+    border-color: red;
+    border-style: solid;
+}
+
+.delete:hover{
+    background-color: rgb(196, 0, 0);
+    border-color: rgb(196, 0, 0);
+}
+
+.heading{
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.description{
+    font-size: larger;
+}
+
+.success{
+    text-align: center;
+    width: 100%;
+    background-color: rgb(199, 255, 199);
+    padding: 10px;
+    color: green;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    line-height: 1.5;
+}
+
+.error{
+    text-align: center;
+    width: 100%;
+    background-color: rgb(255, 197, 197);
+    padding: 10px;
+    color: red;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    line-height: 1.5;
+}
+
+.input{
+    padding: 10px;
+    width: 30%;
+}
